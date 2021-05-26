@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PlantMe</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="registo"><u>Ainda não tem conta? Registe-se agora!</u></string>
+    <string name="confirmPassword">Confirme a password</string>
 </resources>
