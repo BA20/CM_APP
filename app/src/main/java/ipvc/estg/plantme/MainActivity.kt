@@ -20,23 +20,17 @@ class MainActivity : AppCompatActivity() {
                     sharedPreferences = getSharedPreferences(getString(R.string.plantme), Context.MODE_PRIVATE)
                     val loggedIn = sharedPreferences.getBoolean(getString(R.string.log_in_state), false)
                     if(loggedIn) {
-                        sleep(3000)
-                        /*TODO - 1. MUDAR SE FOR NECESSÁRIO O NOME DA ATIVIDADE DO ECRÃ PRINCIPAL
-                           E DESCOMENTAR O CÓDIGO*/
-                        /*val intent = Intent(baseContext, HomeActivity::class.java)
+                        sleep(2500)
+                        val intent = Intent(baseContext, Login::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                         startActivity(intent)
                         finish()
-                        */
                     }
                     else {
-                        sleep(3000)
-                        /*TODO - 2. MUDAR SE FOR NECESSÁRIO O NOME DA ATIVIDADE DO ECRÃ DE LOGIN
-                           E DESCOMENTAR O CÓDIGO*/
-                        /*val intent = Intent(baseContext, LoginActivity::class.java)
+                        sleep(2500)
+                        val intent = Intent(baseContext, HomeActivity::class.java)
                         startActivity(intent)
                         finish()
-                        */
                     }
                 } catch (e : Exception) {
                     e.printStackTrace()
