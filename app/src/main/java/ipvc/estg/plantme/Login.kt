@@ -44,7 +44,7 @@ class Login : AppCompatActivity() {
             call.enqueue(object : Callback<User> {
                 override fun onResponse(call: Call<User>, response: Response<User>) {
                     if(response.isSuccessful){
-                        if(response.body()!!.email != email){
+                        if(response.body()!!.email == email){
                             val sharedPreferences = getSharedPreferences(getString(R.string.plantme), Context.MODE_PRIVATE)
                             with(sharedPreferences.edit()) {
                                 putBoolean(R.string.log_in_state.toString(), true)
