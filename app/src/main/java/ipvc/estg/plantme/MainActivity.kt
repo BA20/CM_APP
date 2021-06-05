@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     else {
                         sleep(2500)
-                        val intent = Intent(baseContext, HomeActivity::class.java)
+                        val intent = Intent(baseContext, Home::class.java)
                         startActivity(intent)
                         finish()
                     }
