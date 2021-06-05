@@ -21,14 +21,14 @@ class MainActivity : AppCompatActivity() {
                     val loggedIn = sharedPreferences.getBoolean(getString(R.string.log_in_state), false)
                     if(loggedIn) {
                         sleep(2500)
-                        val intent = Intent(baseContext, Login::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        val intent = Intent(baseContext, Home::class.java)
                         startActivity(intent)
                         finish()
                     }
                     else {
                         sleep(2500)
-                        val intent = Intent(baseContext, HomeActivity::class.java)
+                        val intent = Intent(baseContext, Login::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                         startActivity(intent)
                         finish()
                     }
