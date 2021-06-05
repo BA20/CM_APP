@@ -50,6 +50,9 @@ class Login : AppCompatActivity() {
                                 putBoolean(R.string.log_in_state.toString(), true)
                                 commit()
                             }
+                            val intent = Intent(baseContext, Home::class.java)
+                            startActivity(intent)
+                            finish()
                         }else {
                             Toast.makeText(this@Login, getString(R.string.emailError), Toast.LENGTH_SHORT).show()
                         }
