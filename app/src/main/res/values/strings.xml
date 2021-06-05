@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">PlantMe</string>
-    <!--<string name="email">Email</string>
+    <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="registo"><u>Ainda não tem conta? Registe-se agora!</u></string>
     <string name="confirmPassword">Confirme a password</string>
@@ -8,7 +8,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_camara">Camara</string>-->
+    <string name="title_camara">Camara</string>
     <string name="plantme">plantMe</string>
     <string name="log_in_state">logInState</string>
 </resources>
