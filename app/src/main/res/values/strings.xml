@@ -11,4 +11,7 @@
     <string name="title_camara">Camara</string>
     <string name="plantme">plantMe</string>
     <string name="log_in_state">logInState</string>
+    <string name="blank">Email/ Password Vazios</string>
+    <string name="emailError">Email Incorreto!!</string>
+    <string name="error">Ocorreu um erro na realização do login, tente novamente!</string>
 </resources>

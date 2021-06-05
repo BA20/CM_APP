@@ -49,9 +49,12 @@
         android:layout_height="53dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_baseline_arrow_forward_24"
+        android:clickable="true"
+        android:onClick="realizarLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/loginPassword"
+        tools:ignore="OnClick" />
 
     <TextView
         android:id="@+id/textView"
