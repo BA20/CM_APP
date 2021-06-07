@@ -11,7 +11,11 @@
     <string name="title_camara">Camara</string>
     <string name="plantme">plantMe</string>
     <string name="log_in_state">logInState</string>
+    <string name="email_sp">email</string>
     <string name="blank">Email/ Password Vazios</string>
     <string name="emailError">Email Incorreto!!</string>
     <string name="error">Ocorreu um erro na realização do login, tente novamente!</string>
+    <string name="title_camera">Reconhecimento de Doenças</string>
+    <string name="permission_deny_text">É necessário aceitar as permisões da câmera para utilizar esta funcionalidade!</string>
+    <string name="title_activity_camera">Reconhecimento de Doenças</string>
 </resources>

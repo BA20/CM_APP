@@ -3,6 +3,9 @@
     package="ipvc.estg.plantme">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:name="android.hardware.camera.any" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,10 @@
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"/>
+        <activity
+            android:name=".ui.camera.CameraActivity"
+            android:label="@string/title_activity_camera"
+            android:parentActivityName=".Home"/>
         <activity android:name=".Registo" />
         <activity android:name=".Login"/>
         <activity   android:name=".MainActivity"

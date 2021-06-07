@@ -47,7 +47,8 @@ class Login : AppCompatActivity() {
                         if(response.body()!!.email == email){
                             val sharedPreferences = getSharedPreferences(getString(R.string.plantme), Context.MODE_PRIVATE)
                             with(sharedPreferences.edit()) {
-                                putBoolean(R.string.log_in_state.toString(), true)
+                                putString(getString(R.string.email_sp), response.body()!!.email)
+                                putBoolean(getString(R.string.log_in_state), true)
                                 commit()
                             }
                             val intent = Intent(baseContext, Home::class.java)
