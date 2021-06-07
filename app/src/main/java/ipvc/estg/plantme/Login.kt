@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import ipvc.estg.plantme.api.EndPoints
 import ipvc.estg.plantme.api.ServiceBuilder
@@ -30,44 +32,49 @@ class Login : AppCompatActivity() {
 
 
     fun registo(view: View) {
-        val registo = Intent(this, Registo::class.java)
-        startActivity(registo)
-        finish()
+        if(view is TextView) {
+            val registo = Intent(this, Registo::class.java)
+            startActivity(registo)
+            finish()
+        }
     }
 
     fun realizarLogin(view: View) {
-        val email =  email.text.toString()
-        val password = password.text.toString()
-        if(email.isNotEmpty() && password.isNotEmpty()){
-            val request = ServiceBuilder.buildService(EndPoints::class.java)
-            val call = request.login(email, password)
-            call.enqueue(object : Callback<User> {
-                override fun onResponse(call: Call<User>, response: Response<User>) {
-                    if(response.isSuccessful){
-                        if(response.body()!!.email == email){
-                            val sharedPreferences = getSharedPreferences(getString(R.string.plantme), Context.MODE_PRIVATE)
-                            with(sharedPreferences.edit()) {
-                                putString(getString(R.string.email_sp), response.body()!!.email)
-                                putBoolean(getString(R.string.log_in_state), true)
-                                commit()
+        if(view is ImageButton) {
+            val email =  email.text.toString()
+            val password = password.text.toString()
+            if(email.isNotEmpty() && password.isNotEmpty()){
+                val request = ServiceBuilder.buildService(EndPoints::class.java)
+                val call = request.login(email, password)
+                call.enqueue(object : Callback<User> {
+                    override fun onResponse(call: Call<User>, response: Response<User>) {
+                        if(response.isSuccessful){
+                            if(response.body()!!.email == email){
+                                val sharedPreferences = getSharedPreferences(getString(R.string.plantme), Context.MODE_PRIVATE)
+                                with(sharedPreferences.edit()) {
+                                    putString(getString(R.string.email_sp), response.body()!!.email)
+                                    putBoolean(getString(R.string.log_in_state), true)
+                                    commit()
+                                }
+                                val intent = Intent(baseContext, Home::class.java)
+                                startActivity(intent)
+                                finish()
+                            }else {
+                                Toast.makeText(this@Login, getString(R.string.emailError), Toast.LENGTH_SHORT).show()
                             }
-                            val intent = Intent(baseContext, Home::class.java)
-                            startActivity(intent)
-                            finish()
                         }else {
-                            Toast.makeText(this@Login, getString(R.string.emailError), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@Login, getString(R.string.error), Toast.LENGTH_SHORT).show()
                         }
-                    }else {
-                        Toast.makeText(this@Login, getString(R.string.error), Toast.LENGTH_SHORT).show()
                     }
-                }
 
-                override fun onFailure(call: Call<User>, t: Throwable) {
-                    Toast.makeText(this@Login, "${t.message}", Toast.LENGTH_SHORT).show()
-                }
-            })
-        }else {
-            Toast.makeText(this@Login, getString(R.string.blank), Toast.LENGTH_SHORT).show()
+                    override fun onFailure(call: Call<User>, t: Throwable) {
+                        Toast.makeText(this@Login, "${t.message}", Toast.LENGTH_SHORT).show()
+                    }
+                })
+            }else {
+                Toast.makeText(this@Login, getString(R.string.blank), Toast.LENGTH_SHORT).show()
+            }
         }
+
     }
 }

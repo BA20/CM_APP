@@ -18,4 +18,11 @@
     <string name="title_camera">Reconhecimento de Doenças</string>
     <string name="permission_deny_text">É necessário aceitar as permisões da câmera para utilizar esta funcionalidade!</string>
     <string name="title_activity_camera">Reconhecimento de Doenças</string>
+    <string name="alertas_menu">Alertas e Lembretes</string>
+    <string name="log_out">Terminar Sessão</string>
+    <string name="settings">Definições</string>
+    <string name="log_out_dialog">Terminar Sessão</string>
+    <string name="log_out_message">Tem a certeza que pretende terminar sessão?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
 </resources>

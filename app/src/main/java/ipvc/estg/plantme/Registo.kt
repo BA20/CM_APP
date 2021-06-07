@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 
 class Registo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,8 +13,10 @@ class Registo : AppCompatActivity() {
     }
 
     fun backLogin(view: View) {
-        val backLogin = Intent(this, Login::class.java)
-        startActivity(backLogin)
-        finish()
+        if (view is ImageButton) {
+            val backLogin = Intent(this, Login::class.java)
+            startActivity(backLogin)
+            finish()
+        }
     }
 }
