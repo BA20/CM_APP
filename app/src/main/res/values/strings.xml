@@ -25,4 +25,6 @@
     <string name="log_out_message">Tem a certeza que pretende terminar sessão?</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
+    <string name="title_plantacoes">Plantações</string>
+    <string name="criar_plantacao">Botão para a criação de uma nova plantação</string>
 </resources>

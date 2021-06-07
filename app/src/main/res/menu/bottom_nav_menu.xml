@@ -19,7 +19,7 @@
     <item
         android:id="@+id/navigation_plantacoes"
         android:icon="@drawable/ic_baseline_local_florist_24"
-        android:title="@string/title_notifications" />
+        android:title="@string/title_plantacoes" />
 
     <item
         android:id="@+id/navigation_sugestoes"

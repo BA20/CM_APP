@@ -68,4 +68,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$version_retrofit"
+
+    implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
 }

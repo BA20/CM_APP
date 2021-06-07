@@ -32,16 +32,25 @@ class Home : AppCompatActivity() {
 
         bottomNavigationView = findViewById(R.id.nav_view)
 
+        this.title = "Home";
         navegarParaFragmento(HomeFragment())
         bottomNavigationView.selectedItemId = R.id.navigation_home
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId) {
-                R.id.navigation_home -> navegarParaFragmento(HomeFragment())
+                R.id.navigation_home -> {
+                    this.title = "Home";
+                    navegarParaFragmento(HomeFragment())}
                 R.id.navigation_camera -> iniciarPrevisaoDoencas()
-                R.id.navigation_dashboard -> navegarParaFragmento(DashboardFragment())
-                R.id.navigation_plantacoes -> navegarParaFragmento(PlantacoesFragment())
-                R.id.navigation_sugestoes -> navegarParaFragmento(SugestoesFragment())
+                R.id.navigation_dashboard -> {
+                    this.title = "Dashboard";
+                    navegarParaFragmento(DashboardFragment())}
+                R.id.navigation_plantacoes -> {
+                    this.title = "Plantações";
+                    navegarParaFragmento(PlantacoesFragment())}
+                R.id.navigation_sugestoes -> {
+                    this.title = "Área de Sugestões";
+                    navegarParaFragmento(SugestoesFragment())}
             }
             true
         }
