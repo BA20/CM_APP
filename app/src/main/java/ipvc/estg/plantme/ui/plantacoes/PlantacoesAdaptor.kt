@@ -6,18 +6,21 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ipvc.estg.plantme.R
+import ipvc.estg.plantme.api.entidades.Plantacao
 
 class PlantacoesAdaptor internal constructor(var clickListener: OnNotaClickListener) : RecyclerView.Adapter<PlantacoesAdaptor.NotaViewHolder>() {
 
     private var plantacoes = emptyList<Plantacao>()
 
     class NotaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val nomeZona: TextView = itemView.findViewById(R.id.zona)
-        private val nomePlanta: TextView = itemView.findViewById(R.id.planta)
+        private val nomeZona: TextView = itemView.findViewById(R.id.nome_tipo)
+        private val area: TextView = itemView.findViewById(R.id.data_evento)
+        private val stock: TextView = itemView.findViewById(R.id.stock_adicionado)
 
         fun inicializar(item : Plantacao, action : OnNotaClickListener) {
-            nomeZona.text = item.zona
-            nomePlanta.text = item.planta
+            nomeZona.text = item.nome
+            area.text = item.area.toString()
+            stock.text = item.stock.toString()
 
             itemView.setOnClickListener {
                 action.onItemClick(item, adapterPosition)

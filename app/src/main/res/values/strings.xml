@@ -27,4 +27,15 @@
     <string name="no">Não</string>
     <string name="title_plantacoes">Plantações</string>
     <string name="criar_plantacao">Botão para a criação de uma nova plantação</string>
+    <string name="detalhes_do_produto">Detalhes do Produto</string>
+    <string name="nome_comum">Nome Comum:</string>
+    <string name="esp_cie">Espécie:</string>
+    <string name="stock_atual">Stock Atual:</string>
+    <string name="title_detalhes_plantacao">Detalhes da Zona de Plantação</string>
+    <string name="title_area">Área:</string>
+    <string name="plantacao_observacoes">Observações:</string>
+    <string name="title_eventos_recentes">Eventos Recentes</string>
+    <string name="criar_evento">Botão de criação de um evento</string>
+    <string name="erro_api">Não foi possível a obtenção das plantações!</string>
+    <string name="erro_pedido">Ocorreu um erro na concretização do pedido!</string>
 </resources>

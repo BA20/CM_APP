@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
+    tools:context=".ui.plantacoes.DetalhesPlantacao">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF">
+
+        <ImageView
+            android:id="@+id/det_plantacao_back"
+            android:onClick="backPlantacoes"
+            android:layout_width="41dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="92dp"
+            android:layout_height="91dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/det_plantacao_back"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/nome_zona"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zona 1"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/logo"
+            app:layout_constraintTop_toTopOf="@+id/logo" />
+
+        <TextView
+            android:id="@+id/title_info_prod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/detalhes_do_produto"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/logo"
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+        <TextView
+            android:id="@+id/title_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/nome_comum"
+            app:layout_constraintStart_toStartOf="@+id/title_info_prod"
+            app:layout_constraintTop_toBottomOf="@+id/title_info_prod" />
+
+        <TextView
+            android:id="@+id/title_especie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/esp_cie"
+            app:layout_constraintStart_toStartOf="@+id/title_nome"
+            app:layout_constraintTop_toBottomOf="@+id/title_nome" />
+
+        <TextView
+            android:id="@+id/title_stock"
+            android:layout_width="59dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/stock_atual"
+            app:layout_constraintStart_toStartOf="@+id/title_especie"
+            app:layout_constraintTop_toBottomOf="@+id/title_especie" />
+
+        <TextView
+            android:id="@+id/nome_produto"
+            android:layout_width="0dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/title_nome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/title_nome"
+            app:layout_constraintTop_toTopOf="@+id/title_nome" />
+
+        <TextView
+            android:id="@+id/nome_especie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/title_especie"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/title_especie"
+            app:layout_constraintTop_toTopOf="@+id/title_especie" />
+
+        <TextView
+            android:id="@+id/stock_adicionado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/title_stock"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/title_stock"
+            app:layout_constraintTop_toTopOf="@+id/title_stock" />
+
+        <TextView
+            android:id="@+id/title_info_zona"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_detalhes_plantacao"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_stock" />
+
+        <TextView
+            android:id="@+id/title_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/title_area"
+            app:layout_constraintStart_toStartOf="@+id/title_info_zona"
+            app:layout_constraintTop_toBottomOf="@+id/title_info_zona" />
+
+        <TextView
+            android:id="@+id/title_obs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/plantacao_observacoes"
+            app:layout_constraintStart_toStartOf="@+id/title_area"
+            app:layout_constraintTop_toBottomOf="@+id/title_area" />
+
+        <TextView
+            android:id="@+id/title_eventos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_eventos_recentes"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/title_obs"
+            app:layout_constraintTop_toBottomOf="@+id/title_obs" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_eventos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_eventos"
+            tools:listitem="@layout/eventos_plantacao_line" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/adicionar_evento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:layout_marginBottom="32dp"
+            android:contentDescription="@string/criar_evento"
+            android:src="@drawable/ic_baseline_event_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.96"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/dp_area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/title_area"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/title_area"
+            app:layout_constraintTop_toTopOf="@+id/title_area"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/observacoes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/title_obs"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/title_obs"
+            app:layout_constraintTop_toTopOf="@+id/title_obs" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

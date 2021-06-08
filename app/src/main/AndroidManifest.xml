@@ -2,10 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ipvc.estg.plantme">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-feature android:name="android.hardware.camera.any" />
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -14,19 +15,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PlantMe">
-
+        <activity
+            android:name=".ui.plantacoes.DetalhesPlantacao"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/SplahTheme"/>
         <activity
             android:name=".Home"
+            android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_home" />
         <activity
             android:name=".ui.camera.CameraActivity"
             android:label="@string/title_activity_camera"
-            android:parentActivityName=".Home"/>
-        <activity android:name=".Registo" />
-        <activity android:name=".Login"/>
-        <activity   android:name=".MainActivity"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".Registo"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".Login"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize"
             android:noHistory="true"
-            android:theme="@style/SplahTheme" >
+            android:theme="@style/SplahTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
