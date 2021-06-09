@@ -16,6 +16,7 @@
 
 package ipvc.estg.plantme.ui.camera
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -35,10 +36,21 @@ data class Recognition(val label:String, val confidence:Float) {
 
     // Retorno da string que apresenta a label e a probabilidade
     override fun toString():String{
-        return "$label / $probabilityString"
+        return "$labelString / $probabilityString"
     }
+
+    @SuppressLint("DefaultLocale")
+    fun String.capitalizeWords(): String =
+            split(" ").joinToString(" ") { it.toLowerCase().capitalize() }
 
     // Texto de output, apresentando a probabilidade
     val probabilityString = String.format("%.1f%%", confidence * 100.0f)
+    val labelString = processarTextoLabel(label)
+
+    fun processarTextoLabel(labelOriginal: String) : String {
+        var str: String = labelOriginal.replace('_', ' ')
+        str = str.capitalizeWords()
+        return str
+    }
 
 }

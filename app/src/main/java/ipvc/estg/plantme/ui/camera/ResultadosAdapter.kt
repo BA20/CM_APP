@@ -25,15 +25,15 @@ import androidx.recyclerview.widget.RecyclerView
 import ipvc.estg.plantme.databinding.RecognitionItemBinding
 
 class ResultadosAdapter(private val ctx: Context) :
-    ListAdapter<Recognition, RecognitionViewHolder>(RecognitionDiffUtil()) {
+    ListAdapter<Recognition, ResultadoViewHolder>(RecognitionDiffUtil()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecognitionViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultadoViewHolder {
         val inflater = LayoutInflater.from(ctx)
         val binding = RecognitionItemBinding.inflate(inflater, parent, false)
-        return RecognitionViewHolder(binding)
+        return ResultadoViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RecognitionViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ResultadoViewHolder, position: Int) {
         holder.bindTo(getItem(position))
     }
 
@@ -50,7 +50,7 @@ class ResultadosAdapter(private val ctx: Context) :
 
 }
 
-class RecognitionViewHolder(private val binding: RecognitionItemBinding) :
+class ResultadoViewHolder(private val binding: RecognitionItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     // Binding all the fields to the view - to see which UI element is bind to which field, check
