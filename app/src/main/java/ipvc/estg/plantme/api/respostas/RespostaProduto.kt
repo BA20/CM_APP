@@ -4,5 +4,5 @@ import ipvc.estg.plantme.api.entidades.Produto
 
 class RespostaProduto(
     val status: Boolean,
-    val produto: Produto
+    val produto: List<Produto>
 )

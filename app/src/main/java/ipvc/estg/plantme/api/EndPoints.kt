@@ -23,4 +23,7 @@ interface EndPoints {
 
     @GET("/eventos/getLatest/{id}")
     fun getEventosRecentes(@Path("id") id: Int?) : Call<RespostaEventosPlantacao>
+
+    @GET("/sugestoes/getEpocaAtual")
+    fun getEpocaAtual(): Call<RespostaProduto>
 }
