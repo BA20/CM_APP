@@ -62,11 +62,6 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.2.0"
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
 
-    //Room
-    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
-    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
-    androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
-
     // Import for CameraX
     def camerax_version = "1.0.0-beta10"
     implementation "androidx.camera:camera-camera2:$camerax_version"
@@ -78,6 +73,9 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$version_retrofit"
+
+    //Graficos
+    implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
 
     implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
 }
