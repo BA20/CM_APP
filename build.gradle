@@ -23,6 +23,7 @@ allprojects {
 
 ext{
     version_retrofit = '2.9.0'
+    roomVersion = '2.2.5'
 }
 
 task clean(type: Delete) {
