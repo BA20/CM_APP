@@ -7,7 +7,7 @@
     tools:context=".ui.sugestoes.SugestoesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler_view_sugestoes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -15,5 +15,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/recyclerline"/>
+        tools:listitem="@layout/sugestoes_line"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
