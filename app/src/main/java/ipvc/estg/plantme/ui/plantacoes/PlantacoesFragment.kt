@@ -23,7 +23,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class PlantacoesFragment : Fragment(), PlantacoesAdaptor.OnNotaClickListener {
+class PlantacoesFragment : Fragment(), PlantacoesAdaptor.OnPlantacaoClickListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var sharedPreferences: SharedPreferences

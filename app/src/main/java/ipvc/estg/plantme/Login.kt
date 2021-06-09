@@ -11,7 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import ipvc.estg.plantme.api.EndPoints
 import ipvc.estg.plantme.api.ServiceBuilder
-import ipvc.estg.plantme.api.User
+import ipvc.estg.plantme.api.entidades.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -53,6 +53,7 @@ class Login : AppCompatActivity() {
                                 val sharedPreferences = getSharedPreferences(getString(R.string.plantme), Context.MODE_PRIVATE)
                                 with(sharedPreferences.edit()) {
                                     putString(getString(R.string.email_sp), response.body()!!.email)
+                                    putInt(getString(R.string.user_id), response.body()!!.id)
                                     putBoolean(getString(R.string.log_in_state), true)
                                     commit()
                                 }

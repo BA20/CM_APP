@@ -17,11 +17,11 @@
 
         <ImageView
             android:id="@+id/det_plantacao_back"
-            android:onClick="backPlantacoes"
             android:layout_width="41dp"
             android:layout_height="38dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:onClick="backPlantacoes"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/detalhes_do_produto"
+            android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/logo"
             app:layout_constraintTop_toBottomOf="@+id/logo" />
@@ -63,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/nome_comum"
+            android:textColor="#3C3C3C"
             app:layout_constraintStart_toStartOf="@+id/title_info_prod"
             app:layout_constraintTop_toBottomOf="@+id/title_info_prod" />
 
@@ -72,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/esp_cie"
+            android:textColor="#3C3C3C"
             app:layout_constraintStart_toStartOf="@+id/title_nome"
             app:layout_constraintTop_toBottomOf="@+id/title_nome" />
 
@@ -81,6 +84,7 @@
             android:layout_height="18dp"
             android:layout_marginTop="16dp"
             android:text="@string/stock_atual"
+            android:textColor="#3C3C3C"
             app:layout_constraintStart_toStartOf="@+id/title_especie"
             app:layout_constraintTop_toBottomOf="@+id/title_especie" />
 
@@ -109,7 +113,7 @@
             app:layout_constraintTop_toTopOf="@+id/title_especie" />
 
         <TextView
-            android:id="@+id/stock_adicionado"
+            android:id="@+id/nomeProduto"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -127,6 +131,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:text="@string/title_detalhes_plantacao"
+            android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_stock" />
@@ -137,6 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/title_area"
+            android:textColor="#FF3C3C3C"
             app:layout_constraintStart_toStartOf="@+id/title_info_zona"
             app:layout_constraintTop_toBottomOf="@+id/title_info_zona" />
 
@@ -146,6 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/plantacao_observacoes"
+            android:textColor="#FF3C3C3C"
             app:layout_constraintStart_toStartOf="@+id/title_area"
             app:layout_constraintTop_toBottomOf="@+id/title_area" />
 
@@ -155,6 +162,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/title_eventos_recentes"
+            android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/title_obs"
             app:layout_constraintTop_toBottomOf="@+id/title_obs" />
@@ -166,11 +174,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/adicionar_evento"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_eventos"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
             tools:listitem="@layout/eventos_plantacao_line" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -179,9 +187,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="16dp"
             android:contentDescription="@string/criar_evento"
             android:src="@drawable/ic_baseline_event_24"
+            app:backgroundTint="#135102"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.96"
@@ -211,6 +220,42 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/title_obs"
             app:layout_constraintTop_toTopOf="@+id/title_obs" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Tipo de Evento"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/textView8"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_eventos" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/textView9"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stock Adicionado"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toTopOf="@+id/textView8" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

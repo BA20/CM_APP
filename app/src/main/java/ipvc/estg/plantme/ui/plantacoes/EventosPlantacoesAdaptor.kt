@@ -16,8 +16,8 @@ class EventosPlantacoesAdaptor internal constructor(var clickListener: OnNotaCli
 
     class NotaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val nome: TextView = itemView.findViewById(R.id.nome_tipo)
-        private val data: TextView = itemView.findViewById(R.id.data_evento)
-        private val stock: TextView = itemView.findViewById(R.id.stock_adicionado)
+        private val data: TextView = itemView.findViewById(R.id.area_plantacao)
+        private val stock: TextView = itemView.findViewById(R.id.nomeProduto)
 
         @SuppressLint("SetTextI18n", "SimpleDateFormat")
         fun inicializar(item: Evento, action: OnNotaClickListener) {

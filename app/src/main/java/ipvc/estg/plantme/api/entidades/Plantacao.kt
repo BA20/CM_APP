@@ -9,5 +9,6 @@ class Plantacao (
     val descricao: String,
     val stock: Int,
     val id_user: Int,
-    val id_produto: Int
+    val id_produto: Int,
+    val nomePlanta: String
 ): Serializable

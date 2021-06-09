@@ -3,7 +3,6 @@ package ipvc.estg.plantme.ui.plantacoes
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -24,6 +23,7 @@ import retrofit2.Response
 
 class DetalhesPlantacao : AppCompatActivity(), EventosPlantacoesAdaptor.OnNotaClickListener {
 
+    private lateinit var nomeZona: TextView
     private lateinit var nomeProd: TextView
     private lateinit var nomeEspecie: TextView
     private lateinit var stock: TextView
@@ -39,11 +39,13 @@ class DetalhesPlantacao : AppCompatActivity(), EventosPlantacoesAdaptor.OnNotaCl
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalhes_plantacao)
 
+        nomeZona = findViewById(R.id.nome_zona)
         nomeProd = findViewById(R.id.nome_produto)
         nomeEspecie = findViewById(R.id.nome_especie)
-        stock = findViewById(R.id.stock_adicionado)
+        stock = findViewById(R.id.nomeProduto)
         area = findViewById(R.id.dp_area)
         observacoes = findViewById(R.id.observacoes)
+
 
         plantacao = intent.getSerializableExtra("plantacao") as Plantacao
         val request = ServiceBuilder.buildService(EndPoints::class.java)
@@ -53,6 +55,7 @@ class DetalhesPlantacao : AppCompatActivity(), EventosPlantacoesAdaptor.OnNotaCl
                 if (response.isSuccessful) {
                     if (response.body()?.status == true) {
                         produto = response.body()?.produto!!
+                        nomeZona.text = plantacao.nome
                         nomeProd.text = produto.nomePlanta
                         nomeEspecie.text = produto.especie
                         stock.text = plantacao.stock.toString()

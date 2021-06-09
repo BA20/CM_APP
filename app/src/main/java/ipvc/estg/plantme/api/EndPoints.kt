@@ -1,5 +1,6 @@
 package ipvc.estg.plantme.api
 
+import ipvc.estg.plantme.api.entidades.User
 import ipvc.estg.plantme.api.respostas.RespostaEventosPlantacao
 import ipvc.estg.plantme.api.respostas.RespostaPlantacoes
 import ipvc.estg.plantme.api.respostas.RespostaProduto

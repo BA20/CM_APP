@@ -8,19 +8,19 @@ import androidx.recyclerview.widget.RecyclerView
 import ipvc.estg.plantme.R
 import ipvc.estg.plantme.api.entidades.Plantacao
 
-class PlantacoesAdaptor internal constructor(var clickListener: OnNotaClickListener) : RecyclerView.Adapter<PlantacoesAdaptor.NotaViewHolder>() {
+class PlantacoesAdaptor internal constructor(var clickListener: OnPlantacaoClickListener) : RecyclerView.Adapter<PlantacoesAdaptor.PlantacoesViewHolder>() {
 
     private var plantacoes = emptyList<Plantacao>()
 
-    class NotaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class PlantacoesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val nomeZona: TextView = itemView.findViewById(R.id.nome_tipo)
-        private val area: TextView = itemView.findViewById(R.id.data_evento)
-        private val stock: TextView = itemView.findViewById(R.id.stock_adicionado)
+        private val area: TextView = itemView.findViewById(R.id.area_plantacao)
+        private val stock: TextView = itemView.findViewById(R.id.nomeProduto)
 
-        fun inicializar(item : Plantacao, action : OnNotaClickListener) {
+        fun inicializar(item : Plantacao, action : OnPlantacaoClickListener) {
             nomeZona.text = item.nome
             area.text = item.area.toString()
-            stock.text = item.stock.toString()
+            stock.text = item.nomePlanta
 
             itemView.setOnClickListener {
                 action.onItemClick(item, adapterPosition)
@@ -28,17 +28,17 @@ class PlantacoesAdaptor internal constructor(var clickListener: OnNotaClickListe
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotaViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlantacoesViewHolder {
         val itemView = LayoutInflater.from(parent.context)
                 .inflate(R.layout.platacoes_line, parent, false)
-        return NotaViewHolder(itemView)
+        return PlantacoesViewHolder(itemView)
     }
 
     override fun getItemCount(): Int {
         return plantacoes.size
     }
 
-    override fun onBindViewHolder(holder: NotaViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PlantacoesViewHolder, position: Int) {
         val current = plantacoes[position]
 
         holder.inicializar(current, clickListener)
@@ -49,7 +49,7 @@ class PlantacoesAdaptor internal constructor(var clickListener: OnNotaClickListe
         notifyDataSetChanged()
     }
 
-    interface OnNotaClickListener {
+    interface OnPlantacaoClickListener {
         fun onItemClick(item : Plantacao, position: Int)
     }
 }

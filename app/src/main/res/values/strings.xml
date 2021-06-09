@@ -38,4 +38,5 @@
     <string name="criar_evento">Botão de criação de um evento</string>
     <string name="erro_api">Não foi possível a obtenção das plantações!</string>
     <string name="erro_pedido">Ocorreu um erro na concretização do pedido!</string>
+    <string name="user_id">userid</string>
 </resources>
