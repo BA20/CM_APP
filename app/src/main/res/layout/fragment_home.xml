@@ -21,9 +21,10 @@
         android:id="@+id/vendas_barras"
         android:layout_width="156dp"
         android:layout_height="212dp"
+        android:layout_marginStart="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
 
     </com.github.aachartmodel.aainfographics.aachartcreator.AAChartView>
 
@@ -31,9 +32,13 @@
         android:id="@+id/stock_produto"
         android:layout_width="156dp"
         android:layout_height="212dp"
+        android:layout_marginStart="191dp"
+        android:layout_marginEnd="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:layout_editor_absoluteX="239dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/vendas_barras"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
 
     </com.github.aachartmodel.aainfographics.aachartcreator.AAChartView>
 
@@ -41,11 +46,14 @@
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="@string/alertas_menu"
         android:textAllCaps="false"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="212dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <TextView
         android:id="@+id/textView7"
@@ -53,7 +61,30 @@
         android:layout_height="wrap_content"
         android:text="@string/title_dashboard"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="440dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="110dp"
+        android:layout_height="145dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="110dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="72dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
