@@ -8,7 +8,5 @@ class Produto (
     val nomePlanta: String,
     val especie: String,
     val tempoGestacao: String,
-    val dataInicio: Date,
-    val dataFim: Date,
     val preco: Float
     ): Serializable

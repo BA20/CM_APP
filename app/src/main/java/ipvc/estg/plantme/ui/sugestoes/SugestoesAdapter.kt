@@ -7,22 +7,23 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ipvc.estg.plantme.R
 import ipvc.estg.plantme.api.entidades.Produto
+import ipvc.estg.plantme.api.entidades.Sugestao
 import java.text.SimpleDateFormat
 
 class SugestoesAdapter internal constructor(var clickListener: OnSugestaoClickListener) : RecyclerView.Adapter<SugestoesAdapter.SugestoesViewHolder>() {
 
-    private var sugestao = emptyList<Produto>()
+    private var sugestao = emptyList<Sugestao>()
 
     class SugestoesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nomePlanta: TextView = itemView.findViewById(R.id.nomePlanta)
         val dataInicioV: TextView = itemView.findViewById(R.id.dataInicio)
         val dataFimV: TextView = itemView.findViewById(R.id.dataFim)
 
-        fun inicializar(item : Produto, action : OnSugestaoClickListener) {
+        fun inicializar(item : Sugestao, action : OnSugestaoClickListener) {
             val pattern = "dd-MM"
             val simpleDateFormat = SimpleDateFormat(pattern)
-            val dataInicio = simpleDateFormat.format(item.dataInicio)
-            val dataFim = simpleDateFormat.format(item.dataFim)
+            val dataInicio = simpleDateFormat.format(item.data_inicio)
+            val dataFim = simpleDateFormat.format(item.data_fim)
             nomePlanta.text = item.nomePlanta
             dataInicioV.text = dataInicio.toString()
             dataFimV.text = dataFim.toString()
@@ -50,12 +51,12 @@ class SugestoesAdapter internal constructor(var clickListener: OnSugestaoClickLi
         return sugestao.size
     }
 
-    internal fun setProdutos(produto: List<Produto>) {
-        this.sugestao = produto
+    internal fun setSugestoes(sugestao: List<Sugestao>) {
+        this.sugestao = sugestao
         notifyDataSetChanged()
     }
 
     interface OnSugestaoClickListener {
-        fun onItemClick(item : Produto, position: Int)
+        fun onItemClick(item : Sugestao, position: Int)
     }
 }

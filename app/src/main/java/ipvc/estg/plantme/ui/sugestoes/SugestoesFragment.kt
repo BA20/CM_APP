@@ -3,6 +3,7 @@ package ipvc.estg.plantme.ui.sugestoes
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,9 +15,8 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration
 import ipvc.estg.plantme.R
 import ipvc.estg.plantme.api.EndPoints
 import ipvc.estg.plantme.api.ServiceBuilder
-import ipvc.estg.plantme.api.entidades.Produto
-import ipvc.estg.plantme.api.respostas.RespostaPlantacoes
-import ipvc.estg.plantme.api.respostas.RespostaProduto
+import ipvc.estg.plantme.api.entidades.Sugestao
+import ipvc.estg.plantme.api.respostas.RespostaSugestao
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -47,11 +47,13 @@ class SugestoesFragment : Fragment(), SugestoesAdapter.OnSugestaoClickListener {
         if(email != "") {
             val request = ServiceBuilder.buildService(EndPoints::class.java)
             val call = request.getEpocaAtual()
-            call.enqueue(object : Callback<RespostaProduto> {
-                override fun onResponse(call: Call<RespostaProduto>, response: Response<RespostaProduto>) {
+            call.enqueue(object : Callback<RespostaSugestao> {
+                override fun onResponse(call: Call<RespostaSugestao>, response: Response<RespostaSugestao>) {
                     if (response.isSuccessful) {
                         if (response.body()?.status == true) {
-                            adapter.setProdutos(response.body()?.produto!!)
+                            Log.d("OLA",response.body().toString())
+                            adapter.setSugestoes(response.body()?.sugestoes!!)
+                            Log.d("OLA", adapter.toString())
                         } else {
                             Toast.makeText(
                                 this@SugestoesFragment.requireContext(),
@@ -68,7 +70,7 @@ class SugestoesFragment : Fragment(), SugestoesAdapter.OnSugestaoClickListener {
                         ).show()
                     }
                 }
-                override fun onFailure(call: Call<RespostaProduto>, t: Throwable) {
+                override fun onFailure(call: Call<RespostaSugestao>, t: Throwable) {
                     Toast.makeText(this@SugestoesFragment.requireContext(), t.message, Toast.LENGTH_SHORT).show()
                 }
             })
@@ -77,7 +79,7 @@ class SugestoesFragment : Fragment(), SugestoesAdapter.OnSugestaoClickListener {
         return root
     }
 
-    override fun onItemClick(item: Produto, position: Int) {
+    override fun onItemClick(item: Sugestao, position: Int) {
 
     }
 }

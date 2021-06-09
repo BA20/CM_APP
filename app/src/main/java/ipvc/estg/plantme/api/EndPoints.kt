@@ -3,6 +3,7 @@ package ipvc.estg.plantme.api
 import ipvc.estg.plantme.api.respostas.RespostaEventosPlantacao
 import ipvc.estg.plantme.api.respostas.RespostaPlantacoes
 import ipvc.estg.plantme.api.respostas.RespostaProduto
+import ipvc.estg.plantme.api.respostas.RespostaSugestao
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -25,5 +26,5 @@ interface EndPoints {
     fun getEventosRecentes(@Path("id") id: Int?) : Call<RespostaEventosPlantacao>
 
     @GET("/sugestoes/getEpocaAtual")
-    fun getEpocaAtual(): Call<RespostaProduto>
+    fun getEpocaAtual(): Call<RespostaSugestao>
 }

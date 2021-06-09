@@ -7,14 +7,14 @@
 
     <TextView
         android:id="@+id/nomePlanta"
-        android:layout_width="117dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -26,32 +26,30 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/leaf" />
 
     <TextView
         android:id="@+id/dataInicio"
-        android:layout_width="89dp"
-        android:layout_height="21dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="16dp"
         android:gravity="center"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/dataFim"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintBottom_toBottomOf="@+id/nomePlanta"
         app:layout_constraintStart_toEndOf="@+id/nomePlanta"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/nomePlanta" />
 
     <TextView
         android:id="@+id/dataFim"
-        android:layout_width="86dp"
-        android:layout_height="19dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:gravity="center"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/dataInicio"
+        app:layout_constraintStart_toEndOf="@+id/dataInicio"
+        app:layout_constraintTop_toTopOf="@+id/dataInicio" />
 </androidx.constraintlayout.widget.ConstraintLayout>
