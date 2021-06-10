@@ -7,19 +7,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
+import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
+import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import ipvc.estg.plantme.ui.camera.CameraActivity
 import ipvc.estg.plantme.ui.dashboard.DashboardFragment
 import ipvc.estg.plantme.ui.home.HomeFragment
-import ipvc.estg.plantme.ui.notifications.NotificationsFragment
 import ipvc.estg.plantme.ui.plantacoes.PlantacoesFragment
 import ipvc.estg.plantme.ui.sugestoes.SugestoesFragment
-
 
 class Home : AppCompatActivity() {
 

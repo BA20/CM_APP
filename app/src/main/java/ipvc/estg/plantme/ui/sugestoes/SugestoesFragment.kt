@@ -51,9 +51,7 @@ class SugestoesFragment : Fragment(), SugestoesAdapter.OnSugestaoClickListener {
                 override fun onResponse(call: Call<RespostaSugestao>, response: Response<RespostaSugestao>) {
                     if (response.isSuccessful) {
                         if (response.body()?.status == true) {
-                            Log.d("OLA",response.body().toString())
                             adapter.setSugestoes(response.body()?.sugestoes!!)
-                            Log.d("OLA", adapter.toString())
                         } else {
                             Toast.makeText(
                                 this@SugestoesFragment.requireContext(),
