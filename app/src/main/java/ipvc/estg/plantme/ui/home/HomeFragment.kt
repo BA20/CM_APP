@@ -52,19 +52,24 @@ class HomeFragment : Fragment() {
 
                             val aaChartView = root.findViewById<AAChartView>(R.id.vendas_barras)
 
-                            val aaChartModel : AAChartModel = AAChartModel()
-                                    .chartType(AAChartType.Bar)
-                                    .title("Vendas por Mes e Ano")
-                                    .backgroundColor("#ffffff")
-                                    .dataLabelsEnabled(true)
-                                    .series(arrayOf(
-                                            AASeriesElement()
-                                                    .name("Produtos")
-                                                    .data(arrayOf(quantidade))
-                                    )
-                                    )
+                            for(i in venda!!){
 
-                            aaChartView.aa_drawChartWithChartModel(aaChartModel)
+                                Log.d("QUANT", i.quantidade.toString())
+                                val aaChartModel : AAChartModel = AAChartModel()
+                                        .chartType(AAChartType.Bar)
+                                        .title("Vendas por Mes e Ano")
+                                        .backgroundColor("#ffffff")
+                                        .dataLabelsEnabled(true)
+                                        .series(arrayOf(
+                                                AASeriesElement()
+                                                        .name("Produtos")
+                                                        .data(arrayOf(i.quantidade))
+                                        )
+                                        )
+
+                                aaChartView.aa_drawChartWithChartModel(aaChartModel)
+                            }
+
                         } else {
                             Toast.makeText(
                                     this@HomeFragment.requireContext(),
