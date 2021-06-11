@@ -76,6 +76,5 @@ dependencies {
 
     //Graficos
     implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
-
     implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
 }
