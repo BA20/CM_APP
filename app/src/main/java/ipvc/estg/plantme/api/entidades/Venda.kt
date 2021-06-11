@@ -4,8 +4,8 @@ import java.io.Serializable
 import java.util.*
 
 class Venda (
-        val idVenda: Int,
+        val idvenda: Int,
         val quantidade: Int,
         val date: Date,
-        val idProduto: Produto
+        val id_produto: Produto
 ): Serializable

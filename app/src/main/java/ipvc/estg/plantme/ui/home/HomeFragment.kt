@@ -62,7 +62,7 @@ class HomeFragment : Fragment() {
                                         .dataLabelsEnabled(true)
                                         .series(arrayOf(
                                                 AASeriesElement()
-                                                        .name("Produtos")
+                                                        .name(i.id_produto.nomePlanta)
                                                         .data(arrayOf(i.quantidade))
                                         )
                                         )
