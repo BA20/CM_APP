@@ -26,6 +26,6 @@ interface EndPoints {
     @GET("/sugestoes/getEpocaAtual")
     fun getEpocaAtual(): Call<RespostaSugestao>
 
-    @GET("/vendas/getMesAno/{ano}-{mes}")
+    @GET("/vendas/getMesAno/{ano}/{mes}")
     fun getVendasMesAno(@Path("ano") ano: Int?, @Path("mes") mes: Int?): Call<RespostaVenda>
 }

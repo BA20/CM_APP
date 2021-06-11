@@ -16,6 +16,7 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import ipvc.estg.plantme.R
 import ipvc.estg.plantme.api.EndPoints
 import ipvc.estg.plantme.api.ServiceBuilder
+import ipvc.estg.plantme.api.respostas.RespostaPlantacoes
 import ipvc.estg.plantme.api.respostas.RespostaSugestao
 import ipvc.estg.plantme.api.respostas.RespostaVenda
 import retrofit2.Call
@@ -38,55 +39,53 @@ class HomeFragment : Fragment() {
         email = sharedPreferences.getString(getString(R.string.email_sp), "").toString()
 
         val c = Calendar.getInstance()
-        val month = c.get(Calendar.MONTH)
+        val month = c.get(Calendar.MONTH) + 1
         val year = c.get(Calendar.YEAR)
 
         if(email != "") {
             val request = ServiceBuilder.buildService(EndPoints::class.java)
-            val call = request.getVendasMesAno(year, month + 1)
+            val call = request.getVendasMesAno(ano = year, mes = month)
             call.enqueue(object : Callback<RespostaVenda> {
                 override fun onResponse(call: Call<RespostaVenda>, response: Response<RespostaVenda>) {
                     if (response.isSuccessful) {
                         if (response.body()?.status == true) {
-                            val venda = response.body()?.vendas
-
+                            val vendas = response.body()?.vendas
                             val aaChartView = root.findViewById<AAChartView>(R.id.vendas_barras)
+                            val aaChartModel : AAChartModel = AAChartModel()
+                                .chartType(AAChartType.Bar)
+                                .title("Vendas por Mes e Ano")
+                                .backgroundColor("#ffffff")
+                                .dataLabelsEnabled(true)
 
-                            for(i in venda!!){
+                            val arrayColunas = mutableListOf<AASeriesElement>()
+                            for(venda in vendas!!){
+                                val elemento = AASeriesElement()
+                                    .name(venda.nomePlanta)
+                                    .data(arrayOf(venda.quantidaVenda))
 
-                                Log.d("QUANT", i.quantidade.toString())
-                                val aaChartModel : AAChartModel = AAChartModel()
-                                        .chartType(AAChartType.Bar)
-                                        .title("Vendas por Mes e Ano")
-                                        .backgroundColor("#ffffff")
-                                        .dataLabelsEnabled(true)
-                                        .series(arrayOf(
-                                                AASeriesElement()
-                                                        .name(i.id_produto.nomePlanta)
-                                                        .data(arrayOf(i.quantidade))
-                                        )
-                                        )
-
-                                aaChartView.aa_drawChartWithChartModel(aaChartModel)
+                                arrayColunas.add(elemento)
                             }
+                            aaChartModel.series(arrayColunas.toTypedArray())
+                            aaChartView.aa_drawChartWithChartModel(aaChartModel)
 
                         } else {
                             Toast.makeText(
-                                    this@HomeFragment.requireContext(),
-                                    getString(R.string.erro_api),
-                                    Toast.LENGTH_LONG
+                                this@HomeFragment.requireContext(),
+                                getString(R.string.erro_api),
+                                Toast.LENGTH_LONG
                             ).show()
                         }
                     }
                     else {
                         Toast.makeText(
-                                this@HomeFragment.requireContext(),
-                                getString(R.string.erro_pedido),
-                                Toast.LENGTH_LONG
+                            this@HomeFragment.requireContext(),
+                            getString(R.string.erro_pedido),
+                            Toast.LENGTH_LONG
                         ).show()
                     }
                 }
                 override fun onFailure(call: Call<RespostaVenda>, t: Throwable) {
+                    Log.i("PLANTACOES",  t.message.toString())
                     Toast.makeText(this@HomeFragment.requireContext(), t.message, Toast.LENGTH_SHORT).show()
                 }
             })
