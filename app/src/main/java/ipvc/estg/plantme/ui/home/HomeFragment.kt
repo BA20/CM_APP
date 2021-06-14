@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
@@ -17,7 +18,6 @@ import ipvc.estg.plantme.R
 import ipvc.estg.plantme.api.EndPoints
 import ipvc.estg.plantme.api.ServiceBuilder
 import ipvc.estg.plantme.api.respostas.RespostaPlantacoes
-import ipvc.estg.plantme.api.respostas.RespostaSugestao
 import ipvc.estg.plantme.api.respostas.RespostaVenda
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,6 +37,8 @@ class HomeFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         sharedPreferences = this.requireActivity().getSharedPreferences(getString(R.string.plantme), Context.MODE_PRIVATE)
         email = sharedPreferences.getString(getString(R.string.email_sp), "").toString()
+        val plantacao1 = root.findViewById<TextView>(R.id.plantacao1)
+        val plantacao2 = root.findViewById<TextView>(R.id.plantacao2)
 
         val c = Calendar.getInstance()
         val month = c.get(Calendar.MONTH) + 1
@@ -91,6 +93,43 @@ class HomeFragment : Fragment() {
             })
         }
 
+        if(email != "") {
+            val request = ServiceBuilder.buildService(EndPoints::class.java)
+            val call = request.getAllPlantacoes(email = email)
+            call.enqueue(object : Callback<RespostaPlantacoes> {
+                override fun onResponse(call: Call<RespostaPlantacoes>, response: Response<RespostaPlantacoes>) {
+                    if (response.isSuccessful) {
+                        if (response.body()?.status == true) {
+                            val plantacoes = response.body()?.plantacoes
+                            val tamanho = response.body()?.plantacoes?.size
+                            if (tamanho != null){
+                                val last_plantacao = plantacoes?.last()
+                                plantacao1.text = last_plantacao?.nome
+                            }
+
+                        } else {
+                            Toast.makeText(
+                                    this@HomeFragment.requireContext(),
+                                    getString(R.string.erro_api),
+                                    Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                    else {
+                        Toast.makeText(
+                                this@HomeFragment.requireContext(),
+                                getString(R.string.erro_pedido),
+                                Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+                override fun onFailure(call: Call<RespostaPlantacoes>, t: Throwable) {
+                    Log.i("PLANTACOES",  t.message.toString())
+                    Toast.makeText(this@HomeFragment.requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+
 
 
         //Graficos
@@ -118,14 +157,6 @@ class HomeFragment : Fragment() {
                 )
 
         aaChartView.aa_drawChartWithChartModel(aaChartModel)*/
-
-        /*homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })*/
         return root
     }
 }

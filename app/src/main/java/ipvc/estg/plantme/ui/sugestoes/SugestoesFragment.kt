@@ -43,7 +43,7 @@ class SugestoesFragment : Fragment(), SugestoesAdapter.OnSugestaoClickListener {
         recyclerView.layoutManager = LinearLayoutManager(root.context)
         recyclerView.addItemDecoration(HorizontalDividerItemDecoration.Builder(context).build())
 
-        val calendar = Calendar.getInstance()
+
         if(email != "") {
             val request = ServiceBuilder.buildService(EndPoints::class.java)
             val call = request.getEpocaAtual()
