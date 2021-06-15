@@ -56,12 +56,13 @@ class HomeFragment : Fragment() {
 
         imagePlantacao1.setOnClickListener {
             val intent = Intent(this.requireContext(), DetalhesPlantacao::class.java)
-
+            intent.putExtra("plantacao", plantacao1)
             startActivity(intent)
         }
         
         imagePlantacao2.setOnClickListener {
             val intent = Intent(this.requireContext(), DetalhesPlantacao::class.java)
+            intent.putExtra("plantacao", plantacao2)
             startActivity(intent)
         }
 
