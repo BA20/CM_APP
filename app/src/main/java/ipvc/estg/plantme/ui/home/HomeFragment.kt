@@ -23,13 +23,12 @@ import ipvc.estg.plantme.api.entidades.Plantacao
 import ipvc.estg.plantme.api.respostas.RespostaPlantacoes
 import ipvc.estg.plantme.api.respostas.RespostaVenda
 import ipvc.estg.plantme.ui.plantacoes.DetalhesPlantacao
-import ipvc.estg.plantme.ui.plantacoes.PlantacoesAdaptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class HomeFragment : Fragment(), PlantacoesAdaptor.OnPlantacaoClickListener {
+class HomeFragment : Fragment() {
 
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var email: String
@@ -38,6 +37,9 @@ class HomeFragment : Fragment(), PlantacoesAdaptor.OnPlantacaoClickListener {
     private lateinit var nomePlantacao2: TextView
     private lateinit var imagePlantacao1: ImageView
     private lateinit var imagePlantacao2: ImageView
+
+    private lateinit var plantacao1: Plantacao
+    private lateinit var plantacao2: Plantacao
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,6 +56,7 @@ class HomeFragment : Fragment(), PlantacoesAdaptor.OnPlantacaoClickListener {
 
         imagePlantacao1.setOnClickListener {
             val intent = Intent(this.requireContext(), DetalhesPlantacao::class.java)
+
             startActivity(intent)
         }
         
@@ -125,10 +128,10 @@ class HomeFragment : Fragment(), PlantacoesAdaptor.OnPlantacaoClickListener {
                             val plantacoes = response.body()?.plantacoes
                             val tamanho = response.body()?.plantacoes?.size
                             if (tamanho != null){
-                                val last_plantacao = plantacoes?.last()
-                                val sec_last_plantacao = plantacoes?.get(tamanho - 2)
-                                plantacao1.text = last_plantacao?.nome
-                                plantacao2.text = sec_last_plantacao?.nome
+                                plantacao1 = plantacoes?.last()!!
+                                plantacao2 = plantacoes[tamanho - 2]
+                                nomePlantacao2.text = plantacao2?.nome
+                                nomePlantacao1.text = plantacao1?.nome
                             }
 
                         } else {
@@ -154,12 +157,6 @@ class HomeFragment : Fragment(), PlantacoesAdaptor.OnPlantacaoClickListener {
             })
         }
         return root
-    }
-
-    override fun onItemClick(item: Plantacao, position: Int) {
-        val intent = Intent(this.requireContext(), DetalhesPlantacao::class.java)
-        intent.putExtra("plantacao", item)
-        startActivity(intent)
     }
 }
 
