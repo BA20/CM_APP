@@ -34,6 +34,11 @@ class HomeFragment : Fragment(), PlantacoesAdaptor.OnPlantacaoClickListener {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var email: String
 
+    private lateinit var nomePlantacao1 :TextView
+    private lateinit var nomePlantacao2: TextView
+    private lateinit var imagePlantacao1: ImageView
+    private lateinit var imagePlantacao2: ImageView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,18 +47,18 @@ class HomeFragment : Fragment(), PlantacoesAdaptor.OnPlantacaoClickListener {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         sharedPreferences = this.requireActivity().getSharedPreferences(getString(R.string.plantme), Context.MODE_PRIVATE)
         email = sharedPreferences.getString(getString(R.string.email_sp), "").toString()
-        val plantacao1 = root.findViewById<TextView>(R.id.plantacao1)
-        val plantacao2 = root.findViewById<TextView>(R.id.plantacao2)
-        val imagePlantacao1 = root.findViewById<ImageView>(R.id.imagePlantacao1)
-        val imagePlantacao2 = root.findViewById<ImageView>(R.id.imagePlantacao2)
+        nomePlantacao1 = root.findViewById(R.id.plantacao1)
+        nomePlantacao2 = root.findViewById(R.id.plantacao2)
+        imagePlantacao1 = root.findViewById(R.id.imagePlantacao1)
+        imagePlantacao2 = root.findViewById(R.id.imagePlantacao2)
 
         imagePlantacao1.setOnClickListener {
-            val intent = Intent(this, DetalhesPlantacao::class.java)
+            val intent = Intent(this.requireContext(), DetalhesPlantacao::class.java)
             startActivity(intent)
         }
         
         imagePlantacao2.setOnClickListener {
-            val intent = Intent(this, DetalhesPlantacao::class.java)
+            val intent = Intent(this.requireContext(), DetalhesPlantacao::class.java)
             startActivity(intent)
         }
 
