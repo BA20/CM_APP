@@ -25,7 +25,6 @@ import java.util.*
 
 class DashboardFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var email: String
 
