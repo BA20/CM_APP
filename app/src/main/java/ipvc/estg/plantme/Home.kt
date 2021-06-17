@@ -2,8 +2,11 @@ package ipvc.estg.plantme
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -11,6 +14,8 @@ import android.view.MenuItem
 import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
@@ -23,14 +28,15 @@ import ipvc.estg.plantme.ui.plantacoes.PlantacoesFragment
 import ipvc.estg.plantme.ui.sugestoes.SugestoesFragment
 
 class Home : AppCompatActivity() {
-
+    private val CHANNEL_ID = "channel_id_example_01"
+    private val notificationId = 101;
     private val reqCodeCamera = 1
     private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
+        createNotificationChannel()
         bottomNavigationView = findViewById(R.id.nav_view)
 
         this.title = "Home";
@@ -63,10 +69,36 @@ class Home : AppCompatActivity() {
         return true
     }
 
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val name = "ALERTA - Alerta Humidade Zona 1"
+            val descriptionText = "Humidade definida ultrapassada"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(CHANNEL_ID,name,importance).apply {
+                description= descriptionText
+            }
+            val notificationManager : NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+
+    private fun sendNotification() {
+        val builder = NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.logo)
+                .setContentText("Humidade definida ultrapassada")
+                .setContentTitle("ALERTA - Alerta Humidade Zona 1")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        with(NotificationManagerCompat.from(this)) {
+            notify(notificationId, builder.build())
+        }
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_lembretes -> {
-
+                     sendNotification()
                 true
             }
             R.id.menu_settings -> {
