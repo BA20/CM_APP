@@ -1,7 +1,10 @@
 package ipvc.estg.plantme.api
 
 import ipvc.estg.plantme.api.entidades.User
-import ipvc.estg.plantme.api.respostas.*
+import ipvc.estg.plantme.api.respostas.RespostaEventosPlantacao
+import ipvc.estg.plantme.api.respostas.RespostaPlantacoes
+import ipvc.estg.plantme.api.respostas.RespostaProduto
+import ipvc.estg.plantme.api.respostas.RespostaSugestao
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -25,7 +28,13 @@ interface EndPoints {
 
     @GET("/sugestoes/getEpocaAtual")
     fun getEpocaAtual(): Call<RespostaSugestao>
+<<<<<<< Updated upstream
+=======
 
     @GET("/vendas/getMesAno/{ano}/{mes}")
     fun getVendasMesAno(@Path("ano") ano: Int?, @Path("mes") mes: Int?): Call<RespostaVenda>
+
+    @GET("/vendas/getAll")
+    fun getVendasAll(): Call<RespostaVenda>
+>>>>>>> Stashed changes
 }
