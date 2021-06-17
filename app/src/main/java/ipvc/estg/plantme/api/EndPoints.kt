@@ -28,4 +28,13 @@ interface EndPoints {
 
     @GET("/sugestoes/getEpocaAtual")
     fun getEpocaAtual(): Call<RespostaSugestao>
+<<<<<<< Updated upstream
+=======
+
+    @GET("/vendas/getMesAno/{ano}/{mes}")
+    fun getVendasMesAno(@Path("ano") ano: Int?, @Path("mes") mes: Int?): Call<RespostaVenda>
+
+    @GET("/vendas/getAll")
+    fun getVendasAll(): Call<RespostaVenda>
+>>>>>>> Stashed changes
 }
